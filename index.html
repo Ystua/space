@@ -3,352 +3,1965 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Будь здоров — интернет‑магазин здорового питания</title>
+    <meta name="description" content="Будь здоров — интернет-магазин здорового питания в пиксельном стиле Minecraft: инвентарь продуктов, крафт блюд и достижения.">
+    <title>Будь здоров — инвентарь здорового питания</title>
     <style>
-        /* Сброс стилей и базовые настройки */
-        * {
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        :root {
+            --grass: #5b8731;
+            --grass-light: #7ed957;
+            --grass-dark: #3e6120;
+            --dirt: #8b5a2b;
+            --dirt-dark: #5c3a1a;
+            --stone: #8f8f8f;
+            --stone-light: #c6c6c6;
+            --stone-dark: #4a4a4a;
+            --ui: #c6c6c6;
+            --slot: #8b8b8b;
+            --slot-dark: #373737;
+            --wood: #8b6a3e;
+            --wood-light: #c9a06a;
+            --wood-dark: #5a3f20;
+            --gold: #ffd700;
+            --ink: #2b1a08;
+            --text: #2b2b2b;
+            --white: #f5f5f5;
+
+            --tex-grass: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%235b8731'/%3E%3Crect width='4' height='4' fill='%236d9a3c'/%3E%3Crect x='8' y='4' width='4' height='4' fill='%234f7a2a'/%3E%3Crect x='4' y='8' width='4' height='4' fill='%236d9a3c'/%3E%3Crect x='12' y='12' width='4' height='4' fill='%234f7a2a'/%3E%3Crect y='12' width='4' height='4' fill='%2378a844'/%3E%3Crect x='2' y='6' width='2' height='2' fill='%236d9a3c'/%3E%3Crect x='10' y='2' width='2' height='2' fill='%234f7a2a'/%3E%3Crect x='6' y='14' width='2' height='2' fill='%2378a844'/%3E%3C/svg%3E");
+            --tex-dirt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%238b5a2b'/%3E%3Crect width='4' height='4' fill='%237a4a22'/%3E%3Crect x='8' y='4' width='4' height='4' fill='%239c6633'/%3E%3Crect x='4' y='8' width='4' height='4' fill='%236b4423'/%3E%3Crect x='12' y='12' width='4' height='4' fill='%239c6633'/%3E%3Crect y='12' width='4' height='4' fill='%235c3a1a'/%3E%3Crect x='2' y='6' width='2' height='2' fill='%23a06a33'/%3E%3Crect x='10' y='2' width='2' height='2' fill='%237a4a22'/%3E%3C/svg%3E");
+            --tex-stone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%23c6c6c6'/%3E%3Crect width='4' height='4' fill='%23d0d0d0'/%3E%3Crect x='8' y='4' width='4' height='4' fill='%23b8b8b8'/%3E%3Crect x='4' y='8' width='4' height='4' fill='%23d0d0d0'/%3E%3Crect x='12' y='12' width='4' height='4' fill='%23a8a8a8'/%3E%3Crect y='12' width='4' height='4' fill='%23b8b8b8'/%3E%3Crect x='2' y='6' width='2' height='2' fill='%23d0d0d0'/%3E%3Crect x='10' y='2' width='2' height='2' fill='%23a8a8a8'/%3E%3C/svg%3E");
+            --tex-slot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%238b8b8b'/%3E%3Crect width='4' height='4' fill='%239a9a9a'/%3E%3Crect x='8' y='4' width='4' height='4' fill='%237f7f7f'/%3E%3Crect x='4' y='8' width='4' height='4' fill='%239a9a9a'/%3E%3Crect x='12' y='12' width='4' height='4' fill='%23737373'/%3E%3Crect y='12' width='4' height='4' fill='%23858585'/%3E%3Crect x='2' y='6' width='2' height='2' fill='%239a9a9a'/%3E%3Crect x='10' y='2' width='2' height='2' fill='%23737373'/%3E%3C/svg%3E");
+            --tex-stone-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%233f3f3f'/%3E%3Crect width='4' height='4' fill='%234a4a4a'/%3E%3Crect x='8' y='4' width='4' height='4' fill='%23353535'/%3E%3Crect x='4' y='8' width='4' height='4' fill='%234a4a4a'/%3E%3Crect x='12' y='12' width='4' height='4' fill='%232b2b2b'/%3E%3Crect y='12' width='4' height='4' fill='%23353535'/%3E%3Crect x='2' y='6' width='2' height='2' fill='%234a4a4a'/%3E%3Crect x='10' y='2' width='2' height='2' fill='%232b2b2b'/%3E%3C/svg%3E");
+            --tex-wood: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%238b6a3e'/%3E%3Crect y='4' width='16' height='2' fill='%237a5a32'/%3E%3Crect y='12' width='16' height='2' fill='%239c7a4a'/%3E%3Crect x='2' y='7' width='4' height='2' fill='%239c7a4a'/%3E%3Crect x='10' y='2' width='4' height='2' fill='%237a5a32'/%3E%3Crect x='7' y='10' width='4' height='2' fill='%237a5a32'/%3E%3C/svg%3E");
+        }
+
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: none !important;
+            border-radius: 0;
+        }
+
+        html {
+            scroll-behavior: auto;
         }
 
         body {
-            font-family: 'Minecraft', 'Press Start 2P', cursive, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #a8e6a3 0%, #d5f7d5 100%);
-            scroll-behavior: smooth;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 10px;
+            line-height: 20px;
+            color: var(--text);
+            background-color: #2f2f2f;
+            background-image: var(--tex-stone-dark);
+            background-size: 32px 32px;
+            image-rendering: pixelated;
+            padding-bottom: 96px;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Cpath d='M2 1 L2 12 L5 9 L8 15 L10 14 L7 8 L12 8 Z' fill='%23ffffff' stroke='%231a1a1a' stroke-width='1'/%3E%3C/svg%3E") 2 1, auto;
         }
 
-        /* Подключение шрифта в стиле Minecraft */
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        body.is-loading {
+            overflow: hidden;
+        }
 
-        /* Стили для заголовка и навигации */
-        header {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        img,
+        svg {
+            image-rendering: pixelated;
+        }
+
+        a,
+        button,
+        input,
+        textarea,
+        .slot,
+        .craft-card,
+        .hotbar-slot {
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Cpath d='M2 1 L2 12 L5 9 L8 15 L10 14 L7 8 L12 8 Z' fill='%23ffffff' stroke='%231a1a1a' stroke-width='1'/%3E%3C/svg%3E") 2 1, auto;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: var(--ink);
+        }
+
+        .svg-sprite {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        .slot:focus-within {
+            outline: 4px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        /* ===== Загрузочный экран ===== */
+        .loading-screen {
             position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+            inset: 0;
+            z-index: 2000;
+            display: grid;
+            place-items: center;
+            background-color: #1f1f1f;
+            background-image: var(--tex-dirt);
+            background-size: 48px 48px;
         }
 
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            gap: 2rem;
+        .loading-screen.is-hidden {
+            display: none;
         }
 
-        nav a {
-            color: #2e7d32;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #1b5e20;
-        }
-
-        /* Основные секции */
-        section {
-            padding: 4rem 2rem;
-            min-height: 100vh;
+        .loading-panel {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            gap: 16px;
+            padding: 32px;
+            max-width: 360px;
             text-align: center;
+            background-color: var(--wood);
+            background-image: var(--tex-wood);
+            background-size: 32px 32px;
+            box-shadow: inset 4px 4px 0 var(--wood-light), inset -4px -4px 0 var(--wood-dark), 0 0 0 4px #241505;
         }
 
-        #home {
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23a8e6a3"/><rect x="0" y="0" width="20" height="20" fill="%2381c784" opacity="0.2"/><rect x="40" y="40" width="20" height="20" fill="%234db6ac" opacity="0.2"/></svg>') repeat;
+        .loading-title {
+            font-size: 12px;
+            line-height: 20px;
+            color: var(--ink);
+            text-shadow: 2px 2px 0 var(--wood-light);
         }
 
-        h1, h2, h3 {
-            color: #1b5e20;
-            margin-bottom: 1rem;
+        .progress-outer {
+            width: 256px;
+            height: 24px;
+            padding: 4px;
+            background: #1f1f1f;
+            box-shadow: inset 4px 4px 0 #0f0f0f, inset -4px -4px 0 #4a4a4a;
         }
 
-        p {
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
+        .progress-inner {
+            height: 16px;
+            width: 0;
+            background: var(--grass-light);
+            box-shadow: inset 2px 2px 0 #b8ff8a, inset -2px -2px 0 #3f8f3f;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: #4caf50;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: 2px solid #388e3c;
+        .loading-percent {
+            font-size: 8px;
+            line-height: 16px;
+            color: var(--ink);
         }
 
-        .btn:hover {
-            background-color: #388e3c;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        .loading-tip {
+            font-size: 8px;
+            line-height: 16px;
+            color: #4a2f14;
         }
 
-        /* Секция продуктов */
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            width: 90%;
+        /* ===== Шапка ===== */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 8px 16px;
+            background-color: #1f1f1f;
+            background-image: var(--tex-stone-dark);
+            background-size: 32px 32px;
+            border-bottom: 4px solid #0f0f0f;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
             max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
         }
 
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
+        .site-header .site-title {
+            font-size: 16px;
+            line-height: 24px;
+            padding: 8px 16px;
+            font-weight: normal;
         }
 
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .kbzhu {
-            font-size: 0.9rem;
-            color: #5d4037;
-            margin-top: 0.5rem;
-        }
-
-        /* Секция рецептов */
-        .recipes {
+        .site-header nav ul {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2rem;
-            width: 90%;
-            max-width: 1200px;
+            gap: 4px 8px;
+            list-style: none;
         }
 
-        .recipe-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            transition: all 0.3s;
+        .site-header nav a {
+            display: inline-block;
+            padding: 8px;
+            font-size: 8px;
+            line-height: 16px;
+            color: #e0e0e0;
+            text-decoration: none;
+            text-shadow: 2px 2px 0 #0f0f0f;
         }
 
-        .recipe-card:hover {
-            transform: rotateY(5deg);
+        .site-header nav a:hover {
+            background: #3b3b3b;
+            color: var(--gold);
         }
 
-        /* Отзывы */
-        .reviews {
+        /* ===== Деревянные таблички ===== */
+        .sign {
+            display: inline-block;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: normal;
+            color: var(--ink);
+            padding: 16px 24px;
+            background-color: var(--wood);
+            background-image: var(--tex-wood);
+            background-size: 32px 32px;
+            box-shadow: inset 4px 4px 0 var(--wood-light), inset -4px -4px 0 var(--wood-dark), 0 0 0 4px #241505;
+            text-shadow: 2px 2px 0 var(--wood-light);
+        }
+
+        /* ===== Каменные кнопки ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: inherit;
+            font-size: 12px;
+            line-height: 16px;
+            color: var(--white);
+            text-align: center;
+            text-decoration: none;
+            text-shadow: 2px 2px 0 #2b2b2b;
+            padding: 12px 20px;
+            border: 0;
+            background-color: #7f7f7f;
+            background-image: var(--tex-slot);
+            background-size: 32px 32px;
+            box-shadow: inset 4px 4px 0 #b8b8b8, inset -4px -4px 0 #4a4a4a, 0 0 0 4px #1f1f1f;
+        }
+
+        .btn:hover {
+            background-color: #9a9a9a;
+            box-shadow: inset 4px 4px 0 #d0d0d0, inset -4px -4px 0 #5a5a5a, 0 0 0 4px #1f1f1f;
+        }
+
+        .btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: inset 4px 4px 0 #4a4a4a, inset -4px -4px 0 #b8b8b8, 0 0 0 4px #1f1f1f;
+        }
+
+        .btn-cart {
+            font-size: 8px;
+            padding: 8px 12px;
+        }
+
+        .badge {
+            display: inline-grid;
+            place-items: center;
+            min-width: 16px;
+            height: 16px;
+            padding: 0 4px;
+            font-size: 8px;
+            line-height: 16px;
+            color: var(--ink);
+            background: var(--gold);
+            box-shadow: 0 0 0 2px #2b1a08;
+        }
+
+        /* ===== Секции ===== */
+        main {
+            padding-top: 96px;
+        }
+
+        section {
+            position: relative;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
-            width: 90%;
+            align-items: center;
+            padding: 64px 24px;
+            scroll-margin-top: 96px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .section-note {
+            max-width: 720px;
+            margin-bottom: 24px;
+            font-size: 8px;
+            line-height: 16px;
+            color: #e0e0e0;
+            text-align: center;
+            text-shadow: 2px 2px 0 #0f0f0f;
+        }
+
+        /* ===== Главный экран ===== */
+        #home {
+            min-height: 100vh;
+            justify-content: center;
+            padding-top: 128px;
+            padding-bottom: 128px;
+            background-color: var(--grass);
+            background-image: var(--tex-grass);
+            background-size: 48px 48px;
+            border-bottom: 8px solid var(--dirt-dark);
+        }
+
+        #home::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 96px;
+            background-color: var(--dirt);
+            background-image: var(--tex-dirt);
+            background-size: 48px 48px;
+            border-top: 8px solid var(--grass-dark);
+            pointer-events: none;
+        }
+
+        .hero-panel {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 24px;
+            line-height: 32px;
+            padding: 16px 24px;
+        }
+
+        .hero-text {
+            max-width: 640px;
+            padding: 16px;
+            font-size: 10px;
+            line-height: 20px;
+            color: var(--white);
+            background: rgba(31, 31, 31, 0.75);
+            text-shadow: 2px 2px 0 #1f1f1f;
+        }
+
+        .status-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            padding: 12px 16px;
+            background: #1f1f1f;
+            box-shadow: inset 4px 4px 0 #0f0f0f, inset -4px -4px 0 #4a4a4a;
+        }
+
+        .status-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-label {
+            font-size: 8px;
+            line-height: 16px;
+            color: #c6c6c6;
+            text-shadow: 2px 2px 0 #000000;
+        }
+
+        .status-value {
+            font-size: 8px;
+            line-height: 16px;
+            color: var(--gold);
+        }
+
+        .hearts,
+        .hunger {
+            display: flex;
+            gap: 4px;
+        }
+
+        /* ===== Иконки ===== */
+        .icon {
+            display: block;
+            width: 48px;
+            height: 48px;
+            image-rendering: pixelated;
+        }
+
+        .icon-sm {
+            width: 16px;
+            height: 16px;
+        }
+
+        .icon-xs {
+            width: 12px;
+            height: 12px;
+        }
+
+        .is-empty {
+            opacity: 0.25;
+        }
+
+        /* ===== Панели ===== */
+        .panel {
+            width: 100%;
+            padding: 24px;
+            background-color: var(--ui);
+            background-image: var(--tex-stone);
+            background-size: 32px 32px;
+            box-shadow: inset 4px 4px 0 #e0e0e0, inset -4px -4px 0 #6b6b6b, 0 0 0 4px #1f1f1f;
+        }
+
+        .about-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
             max-width: 800px;
         }
 
-        .review {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: left;
+        .panel-text {
+            font-size: 10px;
+            line-height: 20px;
         }
 
-        /* Контакты */
+        .feature-list {
+            display: grid;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 8px;
+            line-height: 16px;
+        }
+
+        /* ===== Инвентарь продуктов ===== */
+        .inventory {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+            gap: 8px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 8px;
+            background-color: #1f1f1f;
+            box-shadow: inset 4px 4px 0 #0f0f0f, inset -4px -4px 0 #4a4a4a, 0 0 0 4px #0f0f0f;
+        }
+
+        .slot {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 16px;
+            text-align: center;
+            background-color: var(--slot);
+            background-image: var(--tex-slot);
+            background-size: 32px 32px;
+            box-shadow: inset 4px 4px 0 #373737, inset -4px -4px 0 #c6c6c6;
+        }
+
+        .slot:hover {
+            box-shadow: inset 4px 4px 0 #373737, inset -4px -4px 0 #ffffff, 0 0 0 2px #ffffff;
+        }
+
+        .slot-icon {
+            display: grid;
+            place-items: center;
+            width: 64px;
+            height: 64px;
+            padding: 8px;
+            background: #373737;
+            box-shadow: inset 2px 2px 0 #1f1f1f, inset -2px -2px 0 #6b6b6b;
+        }
+
+        .slot-icon .icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        .slot-title {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            font-size: 8px;
+            line-height: 16px;
+            font-weight: normal;
+            color: var(--ink);
+            background-color: var(--wood);
+            background-image: var(--tex-wood);
+            background-size: 24px 24px;
+            box-shadow: inset 2px 2px 0 var(--wood-light), inset -2px -2px 0 var(--wood-dark), 0 0 0 2px #241505;
+            text-shadow: 1px 1px 0 var(--wood-light);
+        }
+
+        .slot-desc {
+            min-height: 48px;
+            font-size: 8px;
+            line-height: 16px;
+            color: #2b2b2b;
+        }
+
+        .freshness {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .kbzhu {
+            width: 100%;
+            padding: 4px 8px;
+            font-size: 8px;
+            line-height: 16px;
+            color: #1f1f1f;
+            background: #b0b0b0;
+            box-shadow: inset 2px 2px 0 #7f7f7f;
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            font-size: 8px;
+            line-height: 16px;
+            color: var(--gold);
+            background: #1f1f1f;
+            box-shadow: inset 2px 2px 0 #000000;
+        }
+
+        .btn-add {
+            width: 100%;
+            padding: 8px 12px;
+            font-size: 8px;
+            line-height: 16px;
+        }
+
+        /* ===== Крафт ===== */
+        .craft-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 16px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .craft-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            padding: 24px;
+            background-color: var(--ui);
+            background-image: var(--tex-stone);
+            background-size: 32px 32px;
+            box-shadow: inset 4px 4px 0 #e0e0e0, inset -4px -4px 0 #6b6b6b, 0 0 0 4px #1f1f1f;
+        }
+
+        .craft-card:hover {
+            box-shadow: inset 4px 4px 0 #e0e0e0, inset -4px -4px 0 #ffffff, 0 0 0 4px #1f1f1f;
+        }
+
+        .craft-title {
+            width: 100%;
+            padding: 8px;
+            font-size: 8px;
+            line-height: 16px;
+            text-align: center;
+        }
+
+        .craft-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .craft-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 40px);
+            grid-template-rows: repeat(3, 40px);
+            gap: 4px;
+            padding: 4px;
+            background: #1f1f1f;
+            box-shadow: inset 4px 4px 0 #0f0f0f, inset -4px -4px 0 #4a4a4a;
+        }
+
+        .craft-slot {
+            display: grid;
+            place-items: center;
+            background-color: var(--slot);
+            background-image: var(--tex-slot);
+            background-size: 24px 24px;
+            box-shadow: inset 4px 4px 0 #373737, inset -4px -4px 0 #c6c6c6;
+        }
+
+        .craft-slot .icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .craft-result {
+            width: 56px;
+            height: 56px;
+            background-color: var(--slot);
+            background-image: var(--tex-slot);
+            background-size: 32px 32px;
+            box-shadow: inset 4px 4px 0 #373737, inset -4px -4px 0 #c6c6c6;
+        }
+
+        .craft-result .icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        .craft-arrow .icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .craft-note {
+            font-size: 8px;
+            line-height: 16px;
+            color: #2b2b2b;
+            text-align: center;
+        }
+
+        /* ===== Отзывы ===== */
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .review {
+            padding: 16px;
+            text-align: left;
+            background-color: var(--ui);
+            background-image: var(--tex-stone);
+            background-size: 32px 32px;
+            box-shadow: inset 4px 4px 0 #e0e0e0, inset -4px -4px 0 #6b6b6b, 0 0 0 4px #1f1f1f;
+        }
+
+        .review p {
+            margin-bottom: 8px;
+            font-size: 8px;
+            line-height: 16px;
+        }
+
+        .review-author {
+            font-size: 8px;
+            line-height: 16px;
+            color: #3f7d20;
+        }
+
+        /* ===== Контакты ===== */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            max-width: 500px;
+            gap: 8px;
         }
 
-        input, textarea {
-            padding: 0.8rem;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-family: inherit;
+        .contact-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 8px;
+            line-height: 16px;
         }
 
-        /* Футер */
-        footer {
-            background-color: #1b5e20;
-            color: white;
+        .contact-key {
+            color: #3f7d20;
+        }
+
+        .order-form {
+            display: grid;
+            gap: 8px;
+        }
+
+        .form-title {
+            width: 100%;
+            padding: 8px;
+            font-size: 8px;
+            line-height: 16px;
             text-align: center;
-            padding: 2rem 1rem;
         }
 
-        /* Всплывающие подсказки */
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 8px;
+            line-height: 16px;
+            color: #f5f5f5;
+            background: #373737;
+            border: 0;
+            box-shadow: inset 4px 4px 0 #1f1f1f, inset -4px -4px 0 #6b6b6b;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #9a9a9a;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 72px;
+        }
+
+        .btn-order {
+            font-size: 8px;
+            line-height: 16px;
+            padding: 12px 16px;
+        }
+
+        .form-hint {
+            font-size: 8px;
+            line-height: 16px;
+            color: #4a4a4a;
+        }
+
+        /* ===== Подсказка ===== */
         .tooltip {
             position: relative;
             display: inline-block;
         }
 
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 200px;
-            background-color: black;
-            color: white;
-            text-align: center;
-            border-radius: 6px;
-            padding: 0.5rem;
+        .tooltip-text {
             position: absolute;
-            z-index: 1;
-            bottom: 125%;
             left: 50%;
+            bottom: calc(100% + 12px);
             transform: translateX(-50%);
+            width: 240px;
+            padding: 8px;
+            font-size: 8px;
+            line-height: 16px;
+            color: var(--white);
+            background: #1f1f1f;
+            box-shadow: 0 0 0 4px #0f0f0f;
             opacity: 0;
-            transition: opacity 0.3s;
+            visibility: hidden;
+            z-index: 10;
         }
 
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
+        .tooltip:hover .tooltip-text,
+        .tooltip:focus-within .tooltip-text {
             opacity: 1;
+            visibility: visible;
         }
 
-        /* Анимации */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* ===== Футер ===== */
+        footer {
+            margin-top: 32px;
+            padding: 24px 16px;
+            font-size: 8px;
+            line-height: 16px;
+            color: #c6c6c6;
+            text-align: center;
+            background-color: #1f1f1f;
+            background-image: var(--tex-stone-dark);
+            background-size: 32px 32px;
+            border-top: 8px solid #0f0f0f;
         }
 
-        section {
-            animation: fadeIn 0.8s ease-out;
+        /* ===== Хотбар ===== */
+        .hotbar {
+            position: fixed;
+            left: 50%;
+            bottom: 16px;
+            transform: translateX(-50%);
+            z-index: 1200;
+            display: flex;
+            gap: 4px;
+            padding: 4px;
+            background: #1f1f1f;
+            box-shadow: inset 4px 4px 0 #0f0f0f, inset -4px -4px 0 #4a4a4a, 0 0 0 4px #0f0f0f;
         }
 
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                gap: 0.5rem;
+        .hotbar-slot {
+            position: relative;
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            border: 0;
+            background-color: var(--slot);
+            background-image: var(--tex-slot);
+            background-size: 32px 32px;
+            box-shadow: inset 4px 4px 0 #373737, inset -4px -4px 0 #c6c6c6;
+        }
+
+        .hotbar-slot:hover {
+            background-color: #a8a8a8;
+        }
+
+        .hotbar-slot.is-active {
+            box-shadow: inset 4px 4px 0 #373737, inset -4px -4px 0 #ffffff, 0 0 0 2px #ffffff;
+        }
+
+        .hotbar-slot .icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .hotbar-slot .badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+        }
+
+        .hotbar-slot.is-off {
+            opacity: 0.4;
+        }
+
+        /* ===== Достижения ===== */
+        .achievement-stack {
+            position: fixed;
+            top: 96px;
+            right: 16px;
+            z-index: 1300;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 280px;
+            pointer-events: none;
+        }
+
+        .achievement {
+            padding: 12px;
+            color: var(--ink);
+            background-color: var(--wood);
+            background-image: var(--tex-wood);
+            background-size: 32px 32px;
+            box-shadow: inset 4px 4px 0 var(--wood-light), inset -4px -4px 0 var(--wood-dark), 0 0 0 4px #241505;
+            animation: toast-in 320ms steps(4) both;
+        }
+
+        .achievement.is-out {
+            animation: toast-out 320ms steps(4) both;
+        }
+
+        .achievement-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 8px;
+            line-height: 16px;
+            color: var(--gold);
+            text-shadow: 2px 2px 0 var(--ink);
+        }
+
+        .achievement-title .icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .achievement-text {
+            font-size: 8px;
+            line-height: 16px;
+        }
+
+        /* ===== Всплывающий предмет ===== */
+        .float-item {
+            position: fixed;
+            z-index: 1400;
+            transform: translate(-50%, 0);
+            font-size: 12px;
+            line-height: 16px;
+            color: var(--gold);
+            text-shadow: 2px 2px 0 var(--ink);
+            white-space: nowrap;
+            pointer-events: none;
+            animation: float-up 900ms steps(6) forwards;
+        }
+
+        /* ===== Анимации без плавности ===== */
+        @keyframes slot-shake {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(2px); }
+        }
+
+        @keyframes toast-in {
+            from { transform: translateX(320px); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes toast-out {
+            from { transform: translateX(0); }
+            to { transform: translateX(320px); }
+        }
+
+        @keyframes float-up {
+            from { transform: translate(-50%, 0); opacity: 1; }
+            to { transform: translate(-50%, -56px); opacity: 0; }
+        }
+
+        @media (hover: hover) {
+            .slot:hover,
+            .craft-card:hover {
+                animation: slot-shake 400ms steps(2) infinite;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+            }
+
+            .float-item {
+                display: none;
+            }
+        }
+
+        /* ===== Адаптивность ===== */
+        @media (max-width: 1024px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .site-header {
+                position: static;
+            }
+
+            main {
+                padding-top: 0;
             }
 
             section {
-                padding: 3rem 1rem;
+                padding: 48px 16px;
+                scroll-margin-top: 16px;
             }
 
-            .products, .recipes {
+            #home {
+                padding-top: 48px;
+                padding-bottom: 96px;
+            }
+
+            .header-inner {
+                justify-content: center;
+            }
+
+            .achievement-stack {
+                top: 16px;
+                right: 8px;
+                width: 240px;
+            }
+
+            .hotbar {
+                bottom: 8px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 8px;
+                line-height: 16px;
+                padding-bottom: 72px;
+            }
+
+            .inventory {
                 grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 16px;
+                line-height: 24px;
+                padding: 12px;
+            }
+
+            .status-bar {
+                gap: 8px;
+                padding: 8px;
+            }
+
+            .hotbar {
+                gap: 2px;
+                padding: 2px;
+            }
+
+            .hotbar-slot {
+                width: 36px;
+                height: 36px;
+            }
+
+            .hotbar-slot .icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            .loading-panel {
+                max-width: 280px;
+                padding: 16px;
+            }
+
+            .progress-outer {
+                width: 200px;
+            }
+
+            .btn {
+                font-size: 8px;
+                padding: 8px 12px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hotbar-slot {
+                width: 32px;
+                height: 32px;
+            }
+
+            .hotbar-slot .icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            .hotbar-slot .badge {
+                top: -2px;
+                right: -2px;
             }
         }
     </style>
 </head>
-<body>
-    <!-- Заголовок и навигация -->
-    <header>
-        <h1>Будь здоров</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#about">О питании</a></li>
-                <li><a href="#products">Продукты</a></li>
-                <li><a href="#recipes">Рецепты</a></li>
-                <li><a href="#reviews">Отзывы</a></li>
-                <li><a href="#contacts">Контакты</a></li>
-            </ul>
-        </nav>
+<body class="is-loading">
+    <noscript>
+        <style>
+            .loading-screen { display: none; }
+            body.is-loading { overflow: auto; }
+        </style>
+    </noscript>
+
+    <!-- Загрузочный экран -->
+    <div class="loading-screen" id="loadingScreen" role="status" aria-live="polite">
+        <div class="loading-panel">
+            <p class="loading-title">Генерация мира...</p>
+            <div class="progress-outer">
+                <div class="progress-inner" id="progressBar"></div>
+            </div>
+            <p class="loading-percent" id="progressText">0%</p>
+            <p class="loading-tip">Собираем блоки здоровья</p>
+        </div>
+    </div>
+
+    <!-- Пиксельные иконки -->
+    <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="i-heart" viewBox="0 0 16 16">
+                <rect x="3" y="2" width="4" height="2" fill="#e53935"/>
+                <rect x="9" y="2" width="4" height="2" fill="#e53935"/>
+                <rect x="2" y="4" width="12" height="4" fill="#e53935"/>
+                <rect x="3" y="8" width="10" height="3" fill="#e53935"/>
+                <rect x="4" y="11" width="8" height="2" fill="#e53935"/>
+                <rect x="6" y="13" width="4" height="2" fill="#e53935"/>
+                <rect x="3" y="4" width="2" height="2" fill="#ff8a80"/>
+                <rect x="2" y="8" width="1" height="2" fill="#8e1b1b"/>
+            </symbol>
+            <symbol id="i-hunger" viewBox="0 0 16 16">
+                <rect x="3" y="3" width="8" height="2" fill="#b5651d"/>
+                <rect x="2" y="5" width="10" height="4" fill="#b5651d"/>
+                <rect x="3" y="9" width="7" height="2" fill="#b5651d"/>
+                <rect x="3" y="4" width="4" height="2" fill="#d98b3a"/>
+                <rect x="9" y="9" width="2" height="2" fill="#f5f5f5"/>
+                <rect x="11" y="11" width="2" height="2" fill="#f5f5f5"/>
+                <rect x="10" y="10" width="2" height="2" fill="#f5f5f5"/>
+                <rect x="12" y="13" width="2" height="1" fill="#e0e0e0"/>
+                <rect x="9" y="11" width="1" height="1" fill="#9e9e9e"/>
+            </symbol>
+            <symbol id="i-potion" viewBox="0 0 16 16">
+                <rect x="6" y="1" width="4" height="2" fill="#6b4a24"/>
+                <rect x="6" y="3" width="4" height="2" fill="#d9f2ea"/>
+                <rect x="4" y="5" width="8" height="1" fill="#d9f2ea"/>
+                <rect x="3" y="6" width="1" height="7" fill="#2f5d3a"/>
+                <rect x="12" y="6" width="1" height="7" fill="#2f5d3a"/>
+                <rect x="4" y="6" width="8" height="7" fill="#d9f2ea"/>
+                <rect x="5" y="8" width="6" height="1" fill="#4caf50"/>
+                <rect x="4" y="9" width="8" height="4" fill="#4caf50"/>
+                <rect x="5" y="9" width="2" height="2" fill="#7ed957"/>
+                <rect x="8" y="7" width="1" height="1" fill="#a5d6a7"/>
+                <rect x="4" y="13" width="8" height="1" fill="#2f5d3a"/>
+            </symbol>
+            <symbol id="i-apple" viewBox="0 0 16 16">
+                <rect x="7" y="1" width="2" height="3" fill="#6b4a24"/>
+                <rect x="9" y="1" width="3" height="2" fill="#4caf50"/>
+                <rect x="10" y="3" width="2" height="1" fill="#3f8f3f"/>
+                <rect x="3" y="5" width="10" height="2" fill="#ffd700"/>
+                <rect x="2" y="7" width="12" height="5" fill="#ffd700"/>
+                <rect x="3" y="12" width="10" height="2" fill="#ffd700"/>
+                <rect x="5" y="14" width="6" height="1" fill="#ffd700"/>
+                <rect x="3" y="5" width="3" height="3" fill="#fff3a0"/>
+                <rect x="11" y="7" width="2" height="5" fill="#c9a200"/>
+                <rect x="2" y="8" width="1" height="3" fill="#c9a200"/>
+            </symbol>
+            <symbol id="i-nuts" viewBox="0 0 16 16">
+                <rect x="2" y="8" width="5" height="5" fill="#8b5a2b"/>
+                <rect x="2" y="7" width="5" height="1" fill="#a06a33"/>
+                <rect x="6" y="3" width="5" height="6" fill="#a06a33"/>
+                <rect x="6" y="2" width="5" height="1" fill="#c08a4a"/>
+                <rect x="10" y="8" width="4" height="5" fill="#7a4a22"/>
+                <rect x="3" y="9" width="2" height="2" fill="#c08a4a"/>
+                <rect x="7" y="4" width="2" height="2" fill="#c08a4a"/>
+                <rect x="11" y="9" width="1" height="2" fill="#a06a33"/>
+                <rect x="6" y="11" width="4" height="1" fill="#5c3a1a"/>
+            </symbol>
+            <symbol id="i-strawberry" viewBox="0 0 16 16">
+                <rect x="5" y="3" width="2" height="2" fill="#4caf50"/>
+                <rect x="9" y="3" width="2" height="2" fill="#4caf50"/>
+                <rect x="7" y="2" width="2" height="2" fill="#66bb6a"/>
+                <rect x="4" y="5" width="8" height="2" fill="#e53935"/>
+                <rect x="3" y="7" width="10" height="4" fill="#e53935"/>
+                <rect x="4" y="11" width="8" height="2" fill="#e53935"/>
+                <rect x="6" y="13" width="4" height="1" fill="#e53935"/>
+                <rect x="7" y="14" width="2" height="1" fill="#e53935"/>
+                <rect x="4" y="6" width="2" height="2" fill="#ff8a80"/>
+                <rect x="6" y="8" width="1" height="1" fill="#ffe082"/>
+                <rect x="9" y="8" width="1" height="1" fill="#ffe082"/>
+                <rect x="7" y="10" width="1" height="1" fill="#ffe082"/>
+                <rect x="10" y="10" width="1" height="1" fill="#ffe082"/>
+                <rect x="8" y="12" width="1" height="1" fill="#ffe082"/>
+            </symbol>
+            <symbol id="i-bread" viewBox="0 0 16 16">
+                <rect x="4" y="3" width="8" height="2" fill="#e0b06a"/>
+                <rect x="2" y="5" width="12" height="2" fill="#e0b06a"/>
+                <rect x="2" y="7" width="12" height="6" fill="#c98a3c"/>
+                <rect x="3" y="13" width="10" height="1" fill="#8b5a2b"/>
+                <rect x="5" y="7" width="1" height="4" fill="#a86a28"/>
+                <rect x="8" y="7" width="1" height="4" fill="#a86a28"/>
+                <rect x="11" y="7" width="1" height="4" fill="#a86a28"/>
+                <rect x="2" y="8" width="1" height="4" fill="#8b5a2b"/>
+                <rect x="13" y="8" width="1" height="4" fill="#8b5a2b"/>
+                <rect x="4" y="4" width="4" height="1" fill="#fff0c0"/>
+            </symbol>
+            <symbol id="i-honey" viewBox="0 0 16 16">
+                <rect x="3" y="3" width="10" height="2" fill="#8b5a2b"/>
+                <rect x="4" y="5" width="8" height="9" fill="#f0a92e"/>
+                <rect x="4" y="5" width="1" height="9" fill="#ffd970"/>
+                <rect x="11" y="5" width="1" height="9" fill="#c07f14"/>
+                <rect x="4" y="13" width="8" height="1" fill="#8b5a2b"/>
+                <rect x="5" y="8" width="6" height="3" fill="#fff3c4"/>
+                <rect x="6" y="9" width="4" height="1" fill="#b8860b"/>
+                <rect x="5" y="6" width="2" height="1" fill="#ffd970"/>
+            </symbol>
+            <symbol id="i-spinach" viewBox="0 0 16 16">
+                <rect x="3" y="3" width="4" height="3" fill="#66bb6a"/>
+                <rect x="8" y="2" width="4" height="4" fill="#4caf50"/>
+                <rect x="2" y="7" width="5" height="4" fill="#4caf50"/>
+                <rect x="8" y="7" width="5" height="5" fill="#66bb6a"/>
+                <rect x="6" y="6" width="3" height="3" fill="#43a047"/>
+                <rect x="7" y="10" width="2" height="5" fill="#2e7d32"/>
+                <rect x="4" y="4" width="1" height="2" fill="#81c784"/>
+                <rect x="9" y="3" width="1" height="2" fill="#81c784"/>
+                <rect x="3" y="8" width="1" height="2" fill="#81c784"/>
+                <rect x="9" y="8" width="1" height="2" fill="#81c784"/>
+            </symbol>
+            <symbol id="i-avocado" viewBox="0 0 16 16">
+                <rect x="6" y="2" width="4" height="2" fill="#2e7d32"/>
+                <rect x="4" y="4" width="8" height="2" fill="#4caf50"/>
+                <rect x="3" y="6" width="10" height="6" fill="#4caf50"/>
+                <rect x="4" y="12" width="8" height="2" fill="#4caf50"/>
+                <rect x="6" y="14" width="4" height="1" fill="#4caf50"/>
+                <rect x="5" y="6" width="6" height="6" fill="#c5e1a5"/>
+                <rect x="6" y="12" width="4" height="1" fill="#c5e1a5"/>
+                <rect x="6" y="8" width="4" height="4" fill="#6d4c41"/>
+                <rect x="7" y="9" width="1" height="1" fill="#a1887f"/>
+                <rect x="4" y="5" width="2" height="2" fill="#81c784"/>
+            </symbol>
+            <symbol id="i-chest" viewBox="0 0 16 16">
+                <rect x="2" y="3" width="12" height="3" fill="#a06a33"/>
+                <rect x="2" y="6" width="12" height="7" fill="#8b5a2b"/>
+                <rect x="2" y="3" width="12" height="1" fill="#5c3a1a"/>
+                <rect x="2" y="6" width="12" height="1" fill="#5c3a1a"/>
+                <rect x="2" y="12" width="12" height="1" fill="#5c3a1a"/>
+                <rect x="2" y="3" width="1" height="10" fill="#5c3a1a"/>
+                <rect x="13" y="3" width="1" height="10" fill="#5c3a1a"/>
+                <rect x="7" y="5" width="2" height="3" fill="#ffd700"/>
+                <rect x="3" y="4" width="2" height="1" fill="#c08a4a"/>
+            </symbol>
+            <symbol id="i-book" viewBox="0 0 16 16">
+                <rect x="3" y="2" width="10" height="12" fill="#6b4a24"/>
+                <rect x="5" y="3" width="7" height="10" fill="#f5f0d8"/>
+                <rect x="3" y="2" width="2" height="12" fill="#4a2f14"/>
+                <rect x="6" y="5" width="5" height="1" fill="#b0a080"/>
+                <rect x="6" y="7" width="5" height="1" fill="#b0a080"/>
+                <rect x="6" y="9" width="4" height="1" fill="#b0a080"/>
+            </symbol>
+            <symbol id="i-home" viewBox="0 0 16 16">
+                <rect x="7" y="1" width="2" height="1" fill="#8b5a2b"/>
+                <rect x="5" y="2" width="6" height="1" fill="#8b5a2b"/>
+                <rect x="3" y="3" width="10" height="2" fill="#a06a33"/>
+                <rect x="2" y="5" width="12" height="1" fill="#8b5a2b"/>
+                <rect x="4" y="6" width="8" height="8" fill="#c6a06a"/>
+                <rect x="7" y="9" width="2" height="5" fill="#5c3a1a"/>
+                <rect x="5" y="7" width="2" height="2" fill="#8ecae6"/>
+            </symbol>
+            <symbol id="i-craft" viewBox="0 0 16 16">
+                <rect x="2" y="2" width="12" height="12" fill="#a06a33"/>
+                <rect x="2" y="2" width="12" height="1" fill="#5c3a1a"/>
+                <rect x="2" y="13" width="12" height="1" fill="#5c3a1a"/>
+                <rect x="2" y="2" width="1" height="12" fill="#5c3a1a"/>
+                <rect x="13" y="2" width="1" height="12" fill="#5c3a1a"/>
+                <rect x="5" y="3" width="1" height="10" fill="#5c3a1a"/>
+                <rect x="10" y="3" width="1" height="10" fill="#5c3a1a"/>
+                <rect x="3" y="5" width="10" height="1" fill="#5c3a1a"/>
+                <rect x="3" y="10" width="10" height="1" fill="#5c3a1a"/>
+                <rect x="3" y="3" width="2" height="2" fill="#c08a4a"/>
+            </symbol>
+            <symbol id="i-letter" viewBox="0 0 16 16">
+                <rect x="2" y="4" width="12" height="9" fill="#f5f0d8"/>
+                <rect x="2" y="4" width="12" height="1" fill="#6b4a24"/>
+                <rect x="2" y="12" width="12" height="1" fill="#6b4a24"/>
+                <rect x="2" y="4" width="1" height="9" fill="#6b4a24"/>
+                <rect x="13" y="4" width="1" height="9" fill="#6b4a24"/>
+                <rect x="3" y="5" width="2" height="1" fill="#b0a080"/>
+                <rect x="5" y="6" width="2" height="1" fill="#b0a080"/>
+                <rect x="7" y="7" width="2" height="1" fill="#b0a080"/>
+                <rect x="9" y="6" width="2" height="1" fill="#b0a080"/>
+                <rect x="11" y="5" width="2" height="1" fill="#b0a080"/>
+            </symbol>
+            <symbol id="i-speaker" viewBox="0 0 16 16">
+                <rect x="2" y="6" width="3" height="4" fill="#c6c6c6"/>
+                <rect x="5" y="4" width="2" height="8" fill="#c6c6c6"/>
+                <rect x="7" y="3" width="2" height="10" fill="#c6c6c6"/>
+                <rect x="10" y="5" width="1" height="2" fill="#7ed957"/>
+                <rect x="11" y="7" width="1" height="2" fill="#7ed957"/>
+                <rect x="12" y="5" width="1" height="2" fill="#7ed957"/>
+                <rect x="10" y="9" width="1" height="2" fill="#7ed957"/>
+            </symbol>
+            <symbol id="i-up" viewBox="0 0 16 16">
+                <rect x="7" y="2" width="2" height="12" fill="#e0e0e0"/>
+                <rect x="5" y="4" width="6" height="2" fill="#e0e0e0"/>
+                <rect x="3" y="6" width="10" height="2" fill="#e0e0e0"/>
+            </symbol>
+            <symbol id="i-arrow" viewBox="0 0 16 16">
+                <rect x="1" y="7" width="10" height="2" fill="#e0e0e0"/>
+                <rect x="9" y="4" width="2" height="2" fill="#e0e0e0"/>
+                <rect x="9" y="10" width="2" height="2" fill="#e0e0e0"/>
+                <rect x="11" y="6" width="2" height="4" fill="#e0e0e0"/>
+                <rect x="13" y="7" width="1" height="2" fill="#e0e0e0"/>
+            </symbol>
+            <symbol id="i-star" viewBox="0 0 16 16">
+                <rect x="7" y="1" width="2" height="3" fill="#ffd700"/>
+                <rect x="1" y="6" width="14" height="2" fill="#ffd700"/>
+                <rect x="3" y="3" width="2" height="2" fill="#ffd700"/>
+                <rect x="11" y="3" width="2" height="2" fill="#ffd700"/>
+                <rect x="2" y="8" width="2" height="2" fill="#ffd700"/>
+                <rect x="12" y="8" width="2" height="2" fill="#ffd700"/>
+                <rect x="4" y="9" width="2" height="3" fill="#ffd700"/>
+                <rect x="10" y="9" width="2" height="3" fill="#ffd700"/>
+                <rect x="5" y="12" width="2" height="2" fill="#ffd700"/>
+                <rect x="9" y="12" width="2" height="2" fill="#ffd700"/>
+                <rect x="7" y="4" width="2" height="2" fill="#fff3a0"/>
+            </symbol>
+            <symbol id="i-emerald" viewBox="0 0 16 16">
+                <rect x="5" y="2" width="6" height="2" fill="#2ecc71"/>
+                <rect x="3" y="4" width="10" height="2" fill="#2ecc71"/>
+                <rect x="2" y="6" width="12" height="5" fill="#27ae60"/>
+                <rect x="4" y="11" width="8" height="2" fill="#1e8449"/>
+                <rect x="6" y="13" width="4" height="1" fill="#1e8449"/>
+                <rect x="4" y="4" width="3" height="2" fill="#7bed9f"/>
+                <rect x="3" y="7" width="2" height="2" fill="#7bed9f"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <!-- Шапка -->
+    <header class="site-header">
+        <div class="header-inner">
+            <h1 class="sign site-title">Будь здоров</h1>
+            <nav aria-label="Основная навигация">
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">О питании</a></li>
+                    <li><a href="#products">Продукты</a></li>
+                    <li><a href="#craft">Крафт</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="btn btn-cart" type="button" id="cartButton">
+                <svg class="icon icon-sm" aria-hidden="true" focusable="false"><use href="#i-chest"></use></svg>
+                <span>Корзина</span>
+                <span class="badge" id="cartCount">0</span>
+            </button>
+        </div>
     </header>
 
-    <!-- Главная страница -->
-    <section id="home">
-        <h2>Здоровое питание в стиле Minecraft!</h2>
-        <p>Интернет‑магазин «Будь здоров» предлагает натуральные продукты и полезные рецепты. Всё как в любимой игре, но с пользой для организма!</p>
-        <a href="#products" class="btn">Смотреть продукты</a>
-    </section>
+    <main>
+        <!-- Главная -->
+        <section id="home">
+            <div class="hero-panel">
+                <h2 class="sign hero-title">Здоровое питание в стиле Minecraft</h2>
+                <p class="hero-text">Интернет-магазин «Будь здоров»: натуральные продукты, полезные рецепты и крафт блюд. Собирай инвентарь здоровья, как в любимой игре.</p>
+                <div class="status-bar">
+                    <div class="status-group" role="group" aria-label="Свежесть продуктов 5 из 5">
+                        <span class="status-label">Свежесть</span>
+                        <span class="hearts" id="freshnessBar">
+                            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-heart"></use></svg>
+                            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-heart"></use></svg>
+                            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-heart"></use></svg>
+                            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-heart"></use></svg>
+                            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-heart"></use></svg>
+                        </span>
+                    </div>
+                    <div class="status-group" role="group" aria-label="Прогресс заказа">
+                        <span class="status-label">Заказ</span>
+                        <span class="hunger" id="orderHunger">
+                            <svg class="icon icon-sm icon-hunger is-empty" aria-hidden="true"><use href="#i-hunger"></use></svg>
+                            <svg class="icon icon-sm icon-hunger is-empty" aria-hidden="true"><use href="#i-hunger"></use></svg>
+                            <svg class="icon icon-sm icon-hunger is-empty" aria-hidden="true"><use href="#i-hunger"></use></svg>
+                            <svg class="icon icon-sm icon-hunger is-empty" aria-hidden="true"><use href="#i-hunger"></use></svg>
+                            <svg class="icon icon-sm icon-hunger is-empty" aria-hidden="true"><use href="#i-hunger"></use></svg>
+                        </span>
+                        <span class="status-value" id="orderProgressText">0/5</span>
+                    </div>
+                </div>
+                <a href="#products" class="btn">Смотреть продукты</a>
+            </div>
+        </section>
 
-    <!-- О питании -->
-    <section id="about">
-        <h2>О здоровом питании</h2>
-        <p>Мы верим, что здоровое питание может быть вкусным и увлекательным. Наши продукты проходят строгий контроль качества и содержат максимум полезных веществ.</p>
-        <div class="tooltip">
-            <span class="btn">Узнать больше</span>
-            <span class="tooltiptext">Каждый продукт сертифицирован и проверен на соответствие стандартам здорового питания!</span>
-        </div>
-    </section>
+        <!-- О питании -->
+        <section id="about">
+            <h2 class="sign section-title">О здоровом питании</h2>
+            <div class="panel about-panel">
+                <p class="panel-text">Мы верим, что здоровое питание может быть вкусным и увлекательным. Наши продукты проходят строгий контроль качества и содержат максимум полезных веществ.</p>
+                <ul class="feature-list">
+                    <li>
+                        <svg class="icon icon-sm" aria-hidden="true"><use href="#i-heart"></use></svg>
+                        Только натуральные ингредиенты без добавок
+                    </li>
+                    <li>
+                        <svg class="icon icon-sm" aria-hidden="true"><use href="#i-hunger"></use></svg>
+                        Сбалансированное КБЖУ в каждом предмете
+                    </li>
+                    <li>
+                        <svg class="icon icon-sm" aria-hidden="true"><use href="#i-star"></use></svg>
+                        Свежесть 5 из 5 на всех полках инвентаря
+                    </li>
+                </ul>
+                <div class="tooltip">
+                    <span class="btn" tabindex="0">Узнать больше</span>
+                    <span class="tooltip-text">Каждый продукт сертифицирован и проверен на соответствие стандартам здорового питания!</span>
+                </div>
+            </div>
+        </section>
 
-    <!-- Продукты с КБЖУ -->
-    <section id="products">
-        <h2>Наши продукты</h2>
-        <div class="products">
-            <div class="product-card">
-                <h3>Гранола с ягодами</h3>
-                <p>Натуральная гранола с добавлением свежих ягод.</p>
-                <div class="kbzhu">КБЖУ: 350/8/12/50</div>
-            </div>
-            <div class="product-card">
-                <h3>Ореховая смесь</h3>
-                <p>Смесь из миндаля, кешью и грецких орехов.</p>
-                <div class="kbzhu">КБЖУ: 600/15/45/20</div>
-            </div>
-            <div class="product-card">
-                <h3>Зелёный смузи</h3>
-                <p>Свежевыжатый смузи из шпината, огурца и яблока.</p>
-                <div class="kbzhu">КБЖУ: 150/3/2/30</div>
-            </div>
-        </div>
-    </section>
+        <!-- Продукты -->
+        <section id="products">
+            <h2 class="sign section-title">Инвентарь продуктов</h2>
+            <p class="section-note">Наведи курсор на слот — предмет отзовётся. Нажми «В корзину», чтобы отправить его в инвентарь.</p>
+            <div class="inventory" id="inventory"></div>
+        </section>
 
-    <!-- Рецепты -->
-    <section id="recipes">
-        <h2>Рецепты</h2>
-        <div class="recipes">
-            <div class="recipe-card">
-                <h3>Салат «Майнкрафт»</h3>
-                <p>Яркий салат с овощами и зеленью. Идеально для лёгкого ужина.</p>
-                <a href="#" class="btn">Рецепт</a>
-            </div>
-            <div class="recipe-card">
-                <h3>Смузи «Зелёная энергия»</h3>
-                <p>Бодрый смузи с шпинатом, бананом и мёдом.</p>
-                <a href="#" class="btn">Рецепт</a>
-            </div>
-        </div>
-    </section>
+        <!-- Крафт -->
+        <section id="craft">
+            <h2 class="sign section-title">Крафт</h2>
+            <p class="section-note">Собери полезное блюдо из ингредиентов. Нажми на рецепт, чтобы получить достижение «Крафтер».</p>
+            <div class="craft-list" id="craftList"></div>
+        </section>
 
-    <!-- Отзывы -->
-    <section id="reviews">
-        <h2>Отзывы</h2>
-        <div class="reviews">
-            <div class="review">
-                <p>«Заказываю уже третий месяц — всё очень вкусно и полезно. Особенно нравится гранола!»</p>
-                <strong>— Алексей, 28 лет</strong>
+        <!-- Отзывы -->
+        <section id="reviews">
+            <h2 class="sign section-title">Отзывы игроков</h2>
+            <div class="reviews">
+                <article class="review">
+                    <p>«Заказываю уже третий месяц — всё очень вкусно и полезно. Особенно нравится зелье здоровья!»</p>
+                    <strong class="review-author">— Алексей, 28 лет</strong>
+                </article>
+                <article class="review">
+                    <p>«Отличный магазин! Быстро доставили, продукты свежие. Шкала свежести не обманывает.»</p>
+                    <strong class="review-author">— Мария, 24 года</strong>
+                </article>
+                <article class="review">
+                    <p>«Крафт орехового батончика — топ. Собираю рецепты как в игре, только польза настоящая.»</p>
+                    <strong class="review-author">— Дмитрий, 31 год</strong>
+                </article>
             </div>
-            <div class="review">
-                <p>«Отличный магазин! Быстро доставили, продукты свежие. Буду рекомендовать друзьям.»</p>
-                <strong>— Мария, 24 года</strong>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contacts">
+            <h2 class="sign section-title">Контакты</h2>
+            <div class="contact-layout">
+                <div class="panel contact-info">
+                    <p class="contact-line"><span class="contact-key">Телефон:</span> +7 (999) 123-45-67</p>
+                    <p class="contact-line"><span class="contact-key">Email:</span> info@bud-zdorov.ru</p>
+                    <p class="contact-line"><span class="contact-key">Адрес:</span> г. Москва, ул. Зелёная, д. 15</p>
+                    <p class="contact-line"><span class="contact-key">Режим:</span> ежедневно с 9:00 до 21:00</p>
+                </div>
+                <form class="panel order-form" id="orderForm">
+                    <h3 class="sign form-title">Оформить заказ</h3>
+                    <label class="visually-hidden" for="orderName">Ваше имя</label>
+                    <input id="orderName" name="name" type="text" placeholder="Ваше имя" required>
+                    <label class="visually-hidden" for="orderEmail">Ваш email</label>
+                    <input id="orderEmail" name="email" type="email" placeholder="Ваш email" required>
+                    <label class="visually-hidden" for="orderComment">Комментарий</label>
+                    <textarea id="orderComment" name="comment" rows="3" placeholder="Комментарий к заказу"></textarea>
+                    <button class="btn btn-order" type="submit">Оформить заказ</button>
+                    <p class="form-hint">Заполни форму — шкала заказа заполнится, а достижение «Первый заказ» станет твоим.</p>
+                </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Контакты -->
-    <section id="contacts">
-        <h2>Контакты</h2>
-        <div class="contact-info">
-            <p>Телефон: +7 (999) 123-45-67</p>
-            <p>Email: info@bud-zdorov.ru</p>
-            <p>Адрес: г. Москва, ул. Зелёная, д. 15</p>
-            <form>
-                <input type="text" placeholder="Ваше имя" required>
-                <input type="email" placeholder="Ваш email" required>
-                <textarea placeholder="Сообщение" rows="4"></textarea>
-                <button type="submit" class="btn">Отправить</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Футер -->
     <footer>
-        <p>&copy; 2024 «Будь здоров». Все права защищены.</p>
+        <p>&copy; 2024 «Будь здоров». Все права защищены. Сделано из блоков и здоровья.</p>
     </footer>
+
+    <!-- Хотбар -->
+    <nav class="hotbar" aria-label="Быстрый доступ">
+        <button class="hotbar-slot" type="button" data-target="#home" data-nav="home" aria-label="Главная" title="Главная">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-home"></use></svg>
+        </button>
+        <button class="hotbar-slot" type="button" data-target="#about" data-nav="about" aria-label="О питании" title="О питании">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-book"></use></svg>
+        </button>
+        <button class="hotbar-slot" type="button" data-target="#products" data-nav="products" aria-label="Продукты" title="Продукты">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-apple"></use></svg>
+        </button>
+        <button class="hotbar-slot" type="button" data-target="#craft" data-nav="craft" aria-label="Крафт" title="Крафт">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-craft"></use></svg>
+        </button>
+        <button class="hotbar-slot" type="button" data-target="#reviews" data-nav="reviews" aria-label="Отзывы" title="Отзывы">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-heart"></use></svg>
+        </button>
+        <button class="hotbar-slot" type="button" data-target="#contacts" data-nav="contacts" aria-label="Контакты" title="Контакты">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-letter"></use></svg>
+        </button>
+        <button class="hotbar-slot" type="button" id="hotbarCart" data-target="#contacts" aria-label="Корзина, товаров: 0" title="Корзина">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chest"></use></svg>
+            <span class="badge" id="hotbarCartCount">0</span>
+        </button>
+        <button class="hotbar-slot is-sound-toggle" type="button" id="soundToggle" aria-pressed="true" aria-label="Звук включён" title="Звук">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-speaker"></use></svg>
+        </button>
+        <button class="hotbar-slot" type="button" data-target="#home" aria-label="Наверх" title="Наверх">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-up"></use></svg>
+        </button>
+    </nav>
+
+    <!-- Достижения -->
+    <div class="achievement-stack" id="achievementStack" aria-live="polite"></div>
+
+    <script>
+        (function () {
+            'use strict';
+
+            /* ===== Пиксельные иконки в разметке ===== */
+            function icon(id, cls) {
+                var klass = cls || 'icon';
+                return '<svg class="' + klass + '" aria-hidden="true" focusable="false"><use href="#' + id + '"></use></svg>';
+            }
+
+            function hearts(count, total) {
+                var out = '';
+                var sum = total || 5;
+                for (var i = 0; i < sum; i++) {
+                    out += icon('i-heart', 'icon icon-sm' + (i < count ? '' : ' is-empty'));
+                }
+                return out;
+            }
+
+            /* ===== Данные продуктов ===== */
+            var products = [
+                {
+                    id: 'potion',
+                    name: 'Зелье здоровья',
+                    icon: 'i-potion',
+                    desc: 'Смузи из шпината, огурца и яблока. Восстанавливает силы.',
+                    kbzhu: '150 / 3 / 2 / 30',
+                    price: 249,
+                    freshness: 5
+                },
+                {
+                    id: 'apple',
+                    name: 'Золотое яблоко',
+                    icon: 'i-apple',
+                    desc: 'Хрустящее яблоко с золотистой кожурой. Ускоряет регенерацию.',
+                    kbzhu: '90 / 0 / 0 / 22',
+                    price: 129,
+                    freshness: 5
+                },
+                {
+                    id: 'bread',
+                    name: 'Хлеб путешественника',
+                    icon: 'i-bread',
+                    desc: 'Цельнозерновой хлеб на закваске. Держит сытость долго.',
+                    kbzhu: '250 / 8 / 4 / 40',
+                    price: 179,
+                    freshness: 4
+                },
+                {
+                    id: 'nuts',
+                    name: 'Ореховый набор',
+                    icon: 'i-nuts',
+                    desc: 'Миндаль, кешью и грецкий орех. Крафт энергии на весь день.',
+                    kbzhu: '600 / 15 / 45 / 20',
+                    price: 349,
+                    freshness: 4
+                },
+                {
+                    id: 'strawberry',
+                    name: 'Ягодный эликсир',
+                    icon: 'i-strawberry',
+                    desc: 'Клубничный смузи с мёдом. Яркий вкус и витамин C.',
+                    kbzhu: '120 / 2 / 1 / 24',
+                    price: 219,
+                    freshness: 3
+                },
+                {
+                    id: 'honey',
+                    name: 'Медовый кекс',
+                    icon: 'i-honey',
+                    desc: 'Домашний кекс на мёде без добавленного сахара.',
+                    kbzhu: '320 / 6 / 12 / 48',
+                    price: 199,
+                    freshness: 3
+                },
+                {
+                    id: 'avocado',
+                    name: 'Изумрудный плод',
+                    icon: 'i-avocado',
+                    desc: 'Авокадо с кремовой текстурой. Источник полезных жиров.',
+                    kbzhu: '160 / 2 / 15 / 9',
+                    price: 159,
+                    freshness: 4
+                },
+                {
+                    id: 'spinach',
+                    name: 'Лист силы',
+                    icon: 'i-spinach',
+                    desc: 'Свежий шпинат. Добавляет выносливости и железа.',
+                    kbzhu: '80 / 4 / 2 / 6',
+                    price: 89,
+                    freshness: 5
+                }
+            ];
+
+            /* ===== Данные рецептов ===== */
+            var recipes = [
+                {
+                    name: 'Зелье здоровья',
+                    result: 'i-potion',
+                    note: 'Золотое яблоко + Лист силы + Мёд',
+                    ingredients: [
+                        { slot: 0, icon: 'i-apple' },
+                        { slot: 4, icon: 'i-spinach' },
+                        { slot: 8, icon: 'i-honey' }
+                    ]
+                },
+                {
+                    name: 'Ореховый батончик',
+                    result: 'i-nuts',
+                    note: 'Ореховый набор + Мёд + Золотое яблоко',
+                    ingredients: [
+                        { slot: 1, icon: 'i-nuts' },
+                        { slot: 4, icon: 'i-honey' },
+                        { slot: 7, icon: 'i-apple' }
+                    ]
+                },
+                {
+                    name: 'Изумрудный салат',
+                    result: 'i-spinach',
+                    note: 'Лист силы + Ягодный эликсир + Золотое яблоко',
+                    ingredients: [
+                        { slot: 0, icon: 'i-spinach' },
+                        { slot: 4, icon: 'i-strawberry' },
+                        { slot: 8, icon: 'i-apple' }
+                    ]
+                }
+            ];
+
+            /* ===== Рендер инвентаря ===== */
+            var inventory = document.getElementById('inventory');
+            inventory.innerHTML = products.map(function (product) {
+                return '' +
+                    '<article class="slot" data-id="' + product.id + '">' +
+                        '<div class="slot-icon">' + icon(product.icon) + '</div>' +
+                        '<h3 class="slot-title">' + product.name + '</h3>' +
+                        '<p class="slot-desc">' + product.desc + '</p>' +
+                        '<div class="freshness" aria-label="Свежесть ' + product.freshness + ' из 5">' + hearts(product.freshness) + '</div>' +
+                        '<div class="kbzhu">КБЖУ: ' + product.kbzhu + '</div>' +
+                        '<div class="price">' + icon('i-emerald', 'icon icon-sm') + '<span>' + product.price + ' изумрудов</span></div>' +
+                        '<button class="btn btn-add" type="button" data-name="' + product.name + '">В корзину</button>' +
+                    '</article>';
+            }).join('');
+
+            /* ===== Рендер крафта ===== */
+            var craftList = document.getElementById('craftList');
+            craftList.innerHTML = recipes.map(function (recipe) {
+                var slots = '';
+                for (var i = 0; i < 9; i++) {
+                    var ingredient = null;
+                    for (var j = 0; j < recipe.ingredients.length; j++) {
+                        if (recipe.ingredients[j].slot === i) {
+                            ingredient = recipe.ingredients[j];
+                        }
+                    }
+                    slots += '<div class="craft-slot">' + (ingredient ? icon(ingredient.icon) : '') + '</div>';
+                }
+                return '' +
+                    '<article class="craft-card" data-recipe="' + recipe.name + '">' +
+                        '<h3 class="sign craft-title">' + recipe.name + '</h3>' +
+                        '<div class="craft-row">' +
+                            '<div class="craft-grid" role="img" aria-label="Сетка крафта: ' + recipe.note + '">' + slots + '</div>' +
+                            '<div class="craft-arrow">' + icon('i-arrow') + '</div>' +
+                            '<div class="craft-slot craft-result">' + icon(recipe.result) + '</div>' +
+                        '</div>' +
+                        '<p class="craft-note">' + recipe.note + '</p>' +
+                    '</article>';
+            }).join('');
+
+            /* ===== Загрузочный экран ===== */
+            var loadingScreen = document.getElementById('loadingScreen');
+            var progressBar = document.getElementById('progressBar');
+            var progressText = document.getElementById('progressText');
+            var progress = 0;
+
+            var loadingTimer = setInterval(function () {
+                progress = Math.min(100, progress + (progress < 80 ? 8 : 4));
+                progressBar.style.width = progress + '%';
+                progressText.textContent = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(loadingTimer);
+                    setTimeout(function () {
+                        loadingScreen.classList.add('is-hidden');
+                        document.body.classList.remove('is-loading');
+                    }, 240);
+                }
+            }, 80);
+
+            /* ===== Звук на Web Audio API ===== */
+            var audioCtx = null;
+            var soundOn = true;
+
+            function getAudio() {
+                try {
+                    if (!audioCtx) {
+                        var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                        if (!AudioContextClass) {
+                            return null;
+                        }
+                        audioCtx = new AudioContextClass();
+                    }
+                    if (audioCtx.state === 'suspended') {
+                        audioCtx.resume();
+                    }
+                    return audioCtx;
+                } catch (error) {
+                    return null;
+                }
+            }
+
+            function playClick(kind) {
+                if (!soundOn) {
+                    return;
+                }
+                var ctx = getAudio();
+                if (!ctx) {
+                    return;
+                }
+
+                var notes;
+                if (kind === 'add') {
+                    notes = [520, 780];
+                } else if (kind === 'achievement') {
+                    notes = [523, 659, 784];
+                } else if (kind === 'error') {
+                    notes = [200, 150];
+                } else {
+                    notes = [380, 520];
+                }
+
+                var start = ctx.currentTime;
+                notes.forEach(function (frequency, index) {
+                    var osc = ctx.createOscillator();
+                    var gain = ctx.createGain();
+                    var offset = index * 0.07;
+                    osc.type = 'square';
+                    osc.frequency.setValueAtTime(frequency, start + offset);
+                    gain.gain.setValueAtTime(0.05, start + offset);
+                    gain.gain.setValueAtTime(0.0001, start + offset + 0.06);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(start + offset);
+                    osc.stop(start + offset + 0.07);
+                });
+            }
+
+            document.addEventListener('pointerdown', function () {
+                if (soundOn) {
+                    getAudio();
+                }
+            }, { once: true });
+
+            /* ===== Достижения ===== */
+            var achievementStack = document.getElementById('achievementStack');
+            var unlocked = {};
+
+            function showToast(title, text) {
+                var toast = document.createElement('div');
+                toast.className = 'achievement';
+                toast.innerHTML = '' +
+                    '<div class="achievement-title">' + icon('i-star', 'icon icon-sm') + '<span>' + title + '</span></div>' +
+                    '<div class="achievement-text">' + text + '</div>';
+                achievementStack.appendChild(toast);
+
+                setTimeout(function () {
+                    toast.classList.add('is-out');
+                    setTimeout(function () {
+                        toast.remove();
+                    }, 320);
+                }, 3200);
+            }
+
+            function unlock(id, text) {
+                if (unlocked[id]) {
+                    return false;
+                }
+                unlocked[id] = true;
+                showToast('Достижение получено!', text);
+                return true;
+            }
+
+            /* ===== Корзина ===== */
+            var cartCount = 0;
+            var cartCountEl = document.getElementById('cartCount');
+            var hotbarCartCountEl = document.getElementById('hotbarCartCount');
+            var hotbarCart = document.getElementById('hotbarCart');
+
+            function renderCart() {
+                if (cartCountEl) {
+                    cartCountEl.textContent = cartCount;
+                }
+                if (hotbarCartCountEl) {
+                    hotbarCartCountEl.textContent = cartCount;
+                }
+                if (hotbarCart) {
+                    hotbarCart.setAttribute('aria-label', 'Корзина, товаров: ' + cartCount);
+                }
+            }
+
+            function floatItem(button, text) {
+                var rect = button.getBoundingClientRect();
+                var float = document.createElement('span');
+                float.className = 'float-item';
+                float.textContent = text;
+                float.style.left = (rect.left + rect.width / 2) + 'px';
+                float.style.top = (rect.top - 8) + 'px';
+                document.body.appendChild(float);
+
+                float.addEventListener('animationend', function () {
+                    float.remove();
+                });
+                setTimeout(function () {
+                    float.remove();
+                }, 1200);
+            }
+
+            function addToCart(name, button) {
+                cartCount += 1;
+                renderCart();
+                playClick('add');
+                floatItem(button, '+1 ' + name);
+
+                if (cartCount === 1) {
+                    unlock('first-item', 'Первый предмет отправлен в корзину.');
+                }
+                if (cartCount === 5) {
+                    unlock('collector', 'В корзине уже 5 предметов. Инвентарь растёт!');
+                }
+            }
+
+            inventory.addEventListener('click', function (event) {
+                var button = event.target.closest('.btn-add');
+                if (!button) {
+                    return;
+                }
+                addToCart(button.getAttribute('data-name'), button);
+            });
+
+            /* ===== Прогресс заказа ===== */
+            var orderProgressText = document.getElementById('orderProgressText');
+
+            function setOrderProgress(value) {
+                var icons = document.querySelectorAll('#orderHunger .icon-hunger');
+                icons.forEach(function (item, index) {
+                    item.classList.toggle('is-empty', index >= value);
+                });
+                if (orderProgressText) {
+                    orderProgressText.textContent = value + '/5';
+                }
+            }
+
+            var orderForm = document.getElementById('orderForm');
+            orderForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                if (cartCount === 0) {
+                    playClick('error');
+                    showToast('Корзина пуста', 'Добавьте хотя бы один предмет из инвентаря.');
+                    return;
+                }
+
+                playClick('achievement');
+                unlock('first-order', 'Заказ оформлен — мир стал здоровее!');
+                setOrderProgress(5);
+                cartCount = 0;
+                renderCart();
+                orderForm.reset();
+            });
+
+            /* ===== Переходы по хотбару и шапке ===== */
+            function scrollToTarget(target) {
+                var node = document.querySelector(target);
+                if (node) {
+                    node.scrollIntoView({ behavior: 'auto', block: 'start' });
+                }
+            }
+
+            function focusOrderName() {
+                var nameInput = document.getElementById('orderName');
+                if (nameInput) {
+                    setTimeout(function () {
+                        nameInput.focus({ preventScroll: true });
+                    }, 0);
+                }
+            }
+
+            document.querySelector('.hotbar').addEventListener('click', function (event) {
+                var button = event.target.closest('.hotbar-slot');
+                if (!button || button.id === 'soundToggle') {
+                    return;
+                }
+                var target = button.getAttribute('data-target');
+                if (target) {
+                    scrollToTarget(target);
+                }
+                if (button.id === 'hotbarCart') {
+                    focusOrderName();
+                }
+            });
+
+            document.getElementById('cartButton').addEventListener('click', function () {
+                scrollToTarget('#contacts');
+                focusOrderName();
+            });
+
+            /* ===== Подсветка активного слота ===== */
+            var navSlots = Array.prototype.slice.call(document.querySelectorAll('.hotbar-slot[data-nav]'));
+
+            function setActiveNav(id) {
+                navSlots.forEach(function (slot) {
+                    slot.classList.toggle('is-active', slot.getAttribute('data-nav') === id);
+                });
+            }
+
+            setActiveNav('home');
+
+            if ('IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            setActiveNav(entry.target.id);
+                        }
+                    });
+                }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+                document.querySelectorAll('main section[id]').forEach(function (section) {
+                    observer.observe(section);
+                });
+            }
+
+            /* ===== Переключатель звука ===== */
+            var soundToggle = document.getElementById('soundToggle');
+            soundToggle.addEventListener('click', function (event) {
+                event.stopPropagation();
+                soundOn = !soundOn;
+                soundToggle.classList.toggle('is-off', !soundOn);
+                soundToggle.setAttribute('aria-pressed', String(soundOn));
+                soundToggle.setAttribute('aria-label', soundOn ? 'Звук включён' : 'Звук выключен');
+                if (soundOn) {
+                    playClick('click');
+                }
+            });
+
+            /* ===== Звук для интерфейса ===== */
+            document.addEventListener('click', function (event) {
+                if (event.target.closest('.btn-add') || event.target.closest('.btn-order') || event.target.closest('.is-sound-toggle')) {
+                    return;
+                }
+                var interactive = event.target.closest('.btn, .hotbar-slot, nav a, .slot, .craft-card');
+                if (interactive) {
+                    playClick('click');
+                }
+            });
+
+            /* ===== Достижение за крафт ===== */
+            craftList.addEventListener('click', function () {
+                unlock('crafter', 'Вы изучили рецепт крафта. Теперь можно готовить!');
+            });
+
+            /* ===== Инициализация ===== */
+            renderCart();
+            setOrderProgress(0);
+        }());
+    </script>
 </body>
 </html>
